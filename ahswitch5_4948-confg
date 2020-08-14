@@ -1,0 +1,306 @@
+
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+!
+hostname AHSWITCH5_4948
+!
+boot-start-marker
+boot-end-marker
+!
+logging event link-status global
+logging event trunk-status global
+enable secret 5 $1$6pkF$bmTeslNu/ODaqu7Eafm4u/
+!
+username admin secret 5 $1$u64j$dmkyQ1QMTCV6pyDz58CT4.
+!
+!
+no aaa new-model
+ip subnet-zero
+no ip routing
+ip domain-name dream.local
+ip vrf mgmtVrf
+!
+ip dhcp limit lease log
+!
+!
+login on-failure log
+login on-success log
+vtp mode transparent
+!
+epm logging
+!
+!
+power redundancy-mode redundant
+!
+!
+!
+archive
+ log config
+  logging enable
+  logging size 200
+  notify syslog contenttype plaintext
+  hidekeys
+!
+spanning-tree mode pvst
+spanning-tree logging
+spanning-tree extend system-id
+spanning-tree vlan 1,110,120 priority 4096
+!
+vlan internal allocation policy ascending
+!
+vlan 110
+ name VLAN110
+!
+vlan 120
+ name VLAN120
+!
+ip ssh logging events
+!
+!
+interface FastEthernet1
+ ip vrf forwarding mgmtVrf
+ no ip address
+ no ip route-cache
+ speed auto
+ duplex auto
+!
+interface GigabitEthernet1/1
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/2
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/3
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/4
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/5
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/6
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/7
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/8
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/9
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/10
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/11
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/12
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/13
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/14
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/15
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/16
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/17
+ switchport access vlan 110
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/18
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/19
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/20
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/21
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/22
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/23
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/24
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/25
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/26
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/27
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/28
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/29
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/30
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/31
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/32
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/33
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/34
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/35
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/36
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/37
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/38
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/39
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/40
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/41
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/42
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/43
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/44
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/45
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/46
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/47
+ description Trunk to Cisco1841
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1,110,120
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface GigabitEthernet1/48
+ description Trunk to Cisco1841
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 1,110,120
+ switchport mode trunk
+!
+interface TenGigabitEthernet1/49
+!
+interface TenGigabitEthernet1/50
+!
+interface Vlan1
+ ip address 10.10.102.32 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.10.102.1
+no ip http server
+no ip http secure-server
+!
+!
+!
+ip sla logging traps
+logging trap debugging
+logging 10.10.99.2
+!
+!
+snmp-server community paloalto RO
+!
+control-plane
+!
+!
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ stopbits 1
+line vty 0 5
+ exec-timeout 0 0
+ logging synchronous
+ login local
+ transport input ssh
+!
+ntp logging
+mac address-table notification mac-move
+end
